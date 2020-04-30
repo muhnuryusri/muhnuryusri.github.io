@@ -1,0 +1,72 @@
+<html >
+<head>
+	<link rel=stylesheet href="style.css" type="text/css">
+	<body>
+	<script>
+		var audio = new Audio("music.mp3");
+		audio.play();
+	</script>
+	<section class="showcase">
+			<div class="video-container">
+				<video src="movie.mp4" autoplay muted loop></video>
+			</div>
+			<div class="content">
+				<p class="line anim-typewriter">Hello Sweetheart</p>
+				<h1 class="animatedText">I still love you, since the first day we meet. I love your smile, your voice, your face, everything about you. I don't wanna lose you anymore. As I always say, you are the kindest person i've ever meet in my life.</h1>
+				<h2 class="animatedText2">I just wanna say. For this second chance, and hope this could be the last.</h2>
+				<h3 class="animatedText3"><b>Do you wanna be, my girlfriend again?</b></h3>
+				<h2 class="animatedText4">This time, i hope we both can committed to each other, and keeping each other heart. Aamiin...</h2>
+				<h4 class="animatedText5"><b><i>Be my girlfriend again <3</i></b></h4>
+				<h5 class="animatedText6">YOUR ANSWER :</h5>
+				<input class="animatedText6" placeholder="Ketik Disini..." type="text" id="answerField"><br>
+				<button class="animatedText6" onclick = "writeData();myFunction()" name="Submit">SUBMIT</button>
+				<br></br>
+
+			<p id="demo"></p>
+
+			<script>
+			function myFunction() {
+			  document.getElementById("demo").innerHTML = "Thanks for your answer~";
+			}
+			</script>
+
+			</div>
+	</section>
+	<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBmO6aUY_4suamxFtB-ZNg8Y50SaH0owGs",
+    authDomain: "lovee-6b86f.firebaseapp.com",
+    databaseURL: "https://lovee-6b86f.firebaseio.com",
+    projectId: "lovee-6b86f",
+    storageBucket: "lovee-6b86f.appspot.com",
+    messagingSenderId: "547059916966",
+    appId: "1:547059916966:web:6775fed6eaa4c72b445467"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+  function writeData() {
+    firebase.database().ref("Answer").set({
+      answer: document.getElementById("answerField").value
+    });
+  }
+
+</script>
+
+				<?php
+				if(isset($_POST["Submit"]))
+				{
+					echo "Makasih sudah jawab~";
+				}
+				?>
+
+	</body>
+	</head>
+</html>
